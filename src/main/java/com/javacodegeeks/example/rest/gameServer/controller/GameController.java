@@ -9,9 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GameController {
 
+    @Autowired
+    private DaoGameService daoGameService;
+
+
     @RequestMapping("/score")
     public String doAdd(@RequestParam(defaultValue="NoName") String playerName) {
         System.out.println("I AM WORRRKKKKIINNGG!!!!!!!!!!!!!!!!!!! "+playerName);
-        return "{\"playerbestscore !!!!!!!!!!!!!!!!!!!\":\"" + playerName + "\"}";
+        daoGameService.retrieveScores();
+        daoGameService.retrievePlayerScores(playerName);
+        return "{\"bestplayer\":\"" + daoGameService.getBestPlayer() + "\"" +","+
+                "\"bestscore\":\"" + daoGameService.getBestScore()+ "\"" +","+
+                "\"playerbestscore\":\"" + daoGameService.getPlayerBestScore()+ "\"" +","+
+                "\"playerAttemptsNumber\":\"" + daoGameService.getPlayerAttemptsNumber()+ "\"}";
     }
 }

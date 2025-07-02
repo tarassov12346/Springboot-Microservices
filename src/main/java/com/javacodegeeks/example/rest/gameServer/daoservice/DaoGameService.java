@@ -7,7 +7,7 @@ import java.util.List;
 public interface DaoGameService {
     void recordScore(Game game);
     void retrieveScores();
-    void retrievePlayerScores(Game game);
+    void retrievePlayerScores(String playerName);
     List<Game> getAllGames();
     String getBestPlayer();
     int getBestScore();
