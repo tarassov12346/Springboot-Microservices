@@ -40,17 +40,12 @@ public class Game {
         return new Game(playerName, playerScore);
     }
 
-
     public String getPlayerName() {
         return playerName;
     }
 
     public int getPlayerScore() {
         return playerScore;
-    }
-
-    public void setPlayerScore(int collapsedLayersCount) {
-        this.playerScore = collapsedLayersCount * 10;
     }
 
     @Override
