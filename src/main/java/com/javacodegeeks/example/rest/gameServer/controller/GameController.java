@@ -16,10 +16,8 @@ public class GameController {
     @Autowired
     private DaoGameService daoGameService;
 
-
     @RequestMapping("/score")
     public String doAdd(@RequestParam(defaultValue = "NoName") String playerName) {
-        System.out.println("I AM WORRRKKKKIINNGG!!!!!!!!!!!!!!!!!!! " + playerName);
         daoGameService.retrieveScores();
         daoGameService.retrievePlayerScores(playerName);
         return "{\"bestplayer\":\"" + daoGameService.getBestPlayer() + "\"" + "," +
